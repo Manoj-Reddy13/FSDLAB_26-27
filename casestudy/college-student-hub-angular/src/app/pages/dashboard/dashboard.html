@@ -1,0 +1,311 @@
+<<div class="dashboard">
+
+  <section class="welcome">
+
+    <div>
+
+      <p class="eyebrow">
+        STUDENT DASHBOARD
+      </p>
+
+      <h1>
+        Good Morning, {{ student.name }} 👋
+      </h1>
+
+      <p class="welcome-text">
+        Here's what's happening with your academics today.
+      </p>
+
+    </div>
+
+    <div class="date-card">
+
+      <span>MONDAY</span>
+      <strong>24</strong>
+      <small>AUGUST 2026</small>
+
+    </div>
+
+  </section>
+
+
+  <section class="stats-grid">
+
+    @for (stat of stats; track stat.label) {
+
+      <div class="stat-card">
+
+        <div class="stat-top">
+
+          <div class="stat-icon" [class]="stat.color">
+            {{ stat.icon }}
+          </div>
+
+          <span class="stat-change">
+            {{ stat.change }}
+          </span>
+
+        </div>
+
+        <h2>{{ stat.value }}</h2>
+
+        <p>{{ stat.label }}</p>
+
+      </div>
+
+    }
+
+  </section>
+
+
+  <section class="main-grid">
+
+    <div class="panel schedule-panel">
+
+      <div class="panel-header">
+
+        <div>
+          <h2>Today's Schedule</h2>
+          <p>Monday, 24 August</p>
+        </div>
+
+        <span class="count-badge">
+          {{ classes.length }} Classes
+        </span>
+
+      </div>
+
+
+      <div class="schedule-list">
+
+        @for (item of classes; track item.time) {
+
+          <div class="schedule-item">
+
+            <div class="schedule-time">
+              {{ item.time }}
+            </div>
+
+            <div class="schedule-line"></div>
+
+            <div class="subject-info">
+
+              <h3>{{ item.subject }}</h3>
+
+              <p>
+                {{ item.code }} • {{ item.room }}
+              </p>
+
+            </div>
+
+            <span
+              class="class-type"
+              [class.lab]="item.type === 'Lab'">
+
+              {{ item.type }}
+
+            </span>
+
+          </div>
+
+        }
+
+      </div>
+
+    </div>
+
+
+    <div class="panel attendance-panel">
+
+      <div class="panel-header">
+
+        <div>
+          <h2>Attendance</h2>
+          <p>Subject-wise overview</p>
+        </div>
+
+        <div class="overall-number">
+          82%
+        </div>
+
+      </div>
+
+
+      <div class="attendance-list">
+
+        @for (item of attendance; track item.subject) {
+
+          <div class="attendance-row">
+
+            <div class="attendance-label">
+
+              <span>{{ item.subject }}</span>
+
+              <strong>{{ item.percentage }}%</strong>
+
+            </div>
+
+            <div class="progress">
+
+              <div
+                class="progress-fill"
+                [class.low]="item.percentage < 75"
+                [style.width.%]="item.percentage">
+              </div>
+
+            </div>
+
+          </div>
+
+        }
+
+      </div>
+
+      <div class="attendance-footer">
+        Minimum required attendance: <strong>75%</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="bottom-grid">
+
+    <div class="panel">
+
+      <div class="panel-header">
+
+        <div>
+          <h2>Upcoming Assignments</h2>
+          <p>Don't miss your deadlines</p>
+        </div>
+
+        <span class="view-link">
+          View All →
+        </span>
+
+      </div>
+
+
+      <div class="assignment-list">
+
+        @for (assignment of assignments; track assignment.title) {
+
+          <div class="assignment-row">
+
+            <div class="assignment-icon">
+              📝
+            </div>
+
+            <div class="assignment-details">
+
+              <h3>{{ assignment.title }}</h3>
+
+              <p>{{ assignment.subject }}</p>
+
+            </div>
+
+            <div class="assignment-due">
+
+              <span
+                [class.high]="assignment.priority === 'High'"
+                [class.medium]="assignment.priority === 'Medium'"
+                [class.low]="assignment.priority === 'Low'">
+
+                {{ assignment.priority }}
+
+              </span>
+
+              <small>
+                Due {{ assignment.due }}
+              </small>
+
+            </div>
+
+          </div>
+
+        }
+
+      </div>
+
+    </div>
+
+
+    <div class="panel">
+
+      <div class="panel-header">
+
+        <div>
+          <h2>Recent Notices</h2>
+          <p>Latest college announcements</p>
+        </div>
+
+        <span class="view-link">
+          View All →
+        </span>
+
+      </div>
+
+
+      <div class="notice-list">
+
+        @for (notice of notices; track notice.title) {
+
+          <div class="notice-row">
+
+            <div class="notice-icon">
+              {{ notice.icon }}
+            </div>
+
+            <div>
+              <h3>{{ notice.title }}</h3>
+              <p>{{ notice.date }}</p>
+            </div>
+
+          </div>
+
+        }
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="quick-actions">
+
+    <h2>Quick Actions</h2>
+
+    <div class="quick-grid">
+
+      <div class="quick-card">
+        <span>📅</span>
+        <strong>View Timetable</strong>
+        <small>Check your weekly schedule</small>
+      </div>
+
+      <div class="quick-card">
+        <span>📝</span>
+        <strong>My Assignments</strong>
+        <small>Track pending submissions</small>
+      </div>
+
+      <div class="quick-card">
+        <span>📊</span>
+        <strong>Check Attendance</strong>
+        <small>View subject percentages</small>
+      </div>
+
+      <div class="quick-card">
+        <span>🔔</span>
+        <strong>College Notices</strong>
+        <small>Read latest announcements</small>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

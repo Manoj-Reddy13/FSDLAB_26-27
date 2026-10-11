@@ -1,0 +1,95 @@
+<div class="page">
+
+  <div class="page-heading">
+
+    <div>
+      <p class="eyebrow">ACADEMICS</p>
+      <h1>Weekly Timetable</h1>
+      <p>Plan your classes and never miss a lecture.</p>
+    </div>
+
+    <button>📅 Current Week</button>
+
+  </div>
+
+
+  <div class="timetable-card">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Time</th>
+
+          @for (day of days; track day) {
+            <th>{{ day }}</th>
+          }
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        @for (row of schedule; track row.time) {
+
+          <tr>
+
+            <td class="time">
+              {{ row.time }}
+            </td>
+
+            @for (subject of row.subjects; track $index) {
+
+              <td [class.break]="subject === 'Lunch Break'">
+
+                @if (subject !== 'Lunch Break') {
+
+                  <strong>{{ subject }}</strong>
+
+                  <small>
+                    Room {{ 200 + $index }}
+                  </small>
+
+                } @else {
+
+                  <span>🍴 Lunch</span>
+
+                }
+
+              </td>
+
+            }
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <div class="legend">
+
+    <span>
+      <i class="blue"></i>
+      Lecture
+    </span>
+
+    <span>
+      <i class="purple"></i>
+      Lab
+    </span>
+
+    <span>
+      <i class="gray"></i>
+      Break
+    </span>
+
+  </div>
+
+</div>

@@ -1,0 +1,133 @@
+<div class="page">
+
+  <div class="heading">
+
+    <div>
+      <p class="eyebrow">ACADEMICS</p>
+      <h1>Attendance</h1>
+      <p>Monitor your attendance and stay above the required limit.</p>
+    </div>
+
+  </div>
+
+
+  <div class="attendance-overview">
+
+    <div class="circle">
+
+      <strong>82%</strong>
+
+      <span>Overall</span>
+
+    </div>
+
+    <div class="overview-text">
+
+      <h2>Good attendance!</h2>
+
+      <p>
+        Your overall attendance is above the minimum required
+        attendance of 75%.
+      </p>
+
+      <div class="mini-stats">
+
+        <span>
+          <strong>165</strong>
+          Classes Attended
+        </span>
+
+        <span>
+          <strong>200</strong>
+          Total Classes
+        </span>
+
+        <span>
+          <strong>35</strong>
+          Classes Missed
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="subject-card">
+
+    <div class="card-header">
+
+      <h2>Subject-wise Attendance</h2>
+
+      <span>
+        Minimum: 75%
+      </span>
+
+    </div>
+
+
+    @for (subject of subjects; track subject.code) {
+
+      <div class="subject">
+
+        <div class="subject-top">
+
+          <div>
+
+            <strong>{{ subject.name }}</strong>
+
+            <small>{{ subject.code }}</small>
+
+          </div>
+
+          <strong
+            [class.warning]="subject.percentage < 75">
+
+            {{ subject.percentage }}%
+
+          </strong>
+
+        </div>
+
+
+        <div class="bar">
+
+          <div
+            class="fill"
+            [class.warning-bar]="subject.percentage < 75"
+            [style.width.%]="subject.percentage">
+          </div>
+
+        </div>
+
+
+        <div class="subject-bottom">
+
+          <span>
+            {{ subject.attended }} / {{ subject.total }} classes attended
+          </span>
+
+          @if (subject.percentage < 75) {
+
+            <span class="warning-text">
+              ⚠ Below 75%
+            </span>
+
+          } @else {
+
+            <span class="safe-text">
+              ✓ Safe
+            </span>
+
+          }
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+
+</div>

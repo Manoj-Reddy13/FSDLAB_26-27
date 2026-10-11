@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Forecast Dashboard</title>
+
+    <link rel="stylesheet" href="forecast.css">
+
+    <!-- Leaflet Map -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Weather Forecast Dashboard</h1>
+
+    <!-- Search -->
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="cityInput"
+            placeholder="Enter city name"
+        >
+
+        <button id="searchBtn">
+            Search
+        </button>
+
+    </div>
+
+    <p id="message"></p>
+
+
+    <!-- Map -->
+    <h2 class="map-title">Select Location</h2>
+
+    <div id="map"></div>
+
+
+    <!-- Weather -->
+    <div id="weather" class="hidden">
+
+        <div class="current-weather">
+
+            <h2 id="location"></h2>
+
+            <div class="temperature">
+                <span id="temperature"></span>°C
+            </div>
+
+            <p id="description"></p>
+
+            <div class="details">
+
+                <div>
+                    <strong>Humidity</strong>
+                    <span id="humidity"></span>%
+                </div>
+
+                <div>
+                    <strong>Wind</strong>
+                    <span id="wind"></span> km/h
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <h2>10-Day Forecast</h2>
+
+        <div id="forecast" class="forecast"></div>
+
+    </div>
+
+</div>
+
+
+<!-- Leaflet JavaScript -->
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<!-- Your JavaScript -->
+<script src="forecast.js"></script>
+
+</body>
+</html>

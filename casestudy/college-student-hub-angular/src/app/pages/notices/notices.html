@@ -1,0 +1,97 @@
+<div class="page">
+
+  <div class="heading">
+
+    <div>
+      <p class="eyebrow">CAMPUS UPDATES</p>
+      <h1>College Notices</h1>
+      <p>Stay updated with the latest announcements.</p>
+    </div>
+
+    <div class="notice-count">
+      {{ notices.length }} New Notices
+    </div>
+
+  </div>
+
+
+  <div class="layout">
+
+    <div class="notice-list">
+
+      @for (notice of notices; track notice.title) {
+
+        <article class="notice">
+
+          <div class="notice-icon">
+            {{ notice.icon }}
+          </div>
+
+          <div class="notice-content">
+
+            <div class="notice-top">
+
+              <span>
+                {{ notice.category }}
+              </span>
+
+              <small>
+                {{ notice.date }}
+              </small>
+
+            </div>
+
+            <h2>
+              {{ notice.title }}
+            </h2>
+
+            <p>
+              {{ notice.description }}
+            </p>
+
+            <button>
+              Read More →
+            </button>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+
+    <aside class="important">
+
+      <h2>Important</h2>
+
+      <div class="important-item">
+        <span>📅</span>
+        <div>
+          <strong>Mid Exams</strong>
+          <p>Check your examination schedule.</p>
+        </div>
+      </div>
+
+      <div class="important-item">
+        <span>⏰</span>
+        <div>
+          <strong>Assignment Deadline</strong>
+          <p>FSD assignment due Aug 28.</p>
+        </div>
+      </div>
+
+      <div class="important-item">
+        <span>📚</span>
+        <div>
+          <strong>Library</strong>
+          <p>Return overdue books.</p>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+
+</div>

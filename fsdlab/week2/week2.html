@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz App</title>
+<link rel="stylesheet" href="week2.css">
+</head>
+
+<body>
+
+<h2>JavaScript Quiz</h2>
+
+<p>Time: <span id="time">30</span></p>
+
+<h3 id="question"></h3>
+
+<button onclick="answer('A')" id="a"></button>
+<button onclick="answer('B')" id="b"></button>
+<button onclick="answer('C')" id="c"></button>
+
+<p id="result"></p>
+
+<p>Score: <span id="score">0</span></p>
+
+<button onclick="nextQuestion()">Next</button>
+
+<script>
+
+let questions=[
+["What is HTML?","Programming Language","Markup Language","Database","B"],
+["What is CSS?","Styling","Database","Programming","A"],
+["Which is scripting language?","HTML","CSS","JavaScript","C"]
+];
+
+let number=0;
+let score=0;
+let time=30;
+
+function showQuestion(){
+
+let q=questions[number];
+
+document.getElementById("question").innerText=q[0];
+
+document.getElementById("a").innerText="A. "+q[1];
+document.getElementById("b").innerText="B. "+q[2];
+document.getElementById("c").innerText="C. "+q[3];
+
+}
+
+function answer(choice){
+
+if(choice==questions[number][4]){
+score++;
+document.getElementById("result").innerText="Correct";
+}
+else{
+document.getElementById("result").innerText="Wrong";
+}
+
+document.getElementById("score").innerText=score;
+
+}
+
+function nextQuestion(){
+
+number++;
+
+if(number<questions.length)
+showQuestion();
+else
+document.getElementById("result").innerText=
+"Quiz Completed! Score: "+score;
+
+}
+
+setInterval(function(){
+
+time--;
+
+document.getElementById("time").innerText=time;
+
+if(time==0)
+document.getElementById("result").innerText="Time Over";
+
+},1000);
+
+showQuestion();
+
+</script>
+
+</body>
+</html>

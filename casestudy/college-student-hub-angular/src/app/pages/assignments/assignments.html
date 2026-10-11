@@ -1,0 +1,103 @@
+<div class="page">
+
+  <div class="heading">
+
+    <div>
+      <p class="eyebrow">ACADEMICS</p>
+      <h1>Assignments</h1>
+      <p>Keep track of all your academic work.</p>
+    </div>
+
+    <button class="add-btn">
+      + Add Assignment
+    </button>
+
+  </div>
+
+
+  <div class="summary">
+
+    <div>
+      <span>📝</span>
+      <strong>3</strong>
+      <small>Pending</small>
+    </div>
+
+    <div>
+      <span>✓</span>
+      <strong>2</strong>
+      <small>Completed</small>
+    </div>
+
+    <div>
+      <span>🔥</span>
+      <strong>2</strong>
+      <small>High Priority</small>
+    </div>
+
+    <div>
+      <span>📅</span>
+      <strong>5</strong>
+      <small>Total Tasks</small>
+    </div>
+
+  </div>
+
+
+  <div class="assignment-card">
+
+    <div class="card-title">
+      <h2>All Assignments</h2>
+      <span>August - September 2026</span>
+    </div>
+
+
+    @for (item of assignments; track item.title; let i = $index) {
+
+      <div class="assignment">
+
+        <div class="assignment-icon">
+          📝
+        </div>
+
+        <div class="details">
+
+          <h3>{{ item.title }}</h3>
+
+          <p>{{ item.subject }}</p>
+
+        </div>
+
+        <div class="due">
+
+          <span
+            [class.high]="item.priority === 'High'"
+            [class.medium]="item.priority === 'Medium'"
+            [class.low]="item.priority === 'Low'">
+
+            {{ item.priority }}
+
+          </span>
+
+          <small>
+            Due {{ item.due }}
+          </small>
+
+        </div>
+
+        <button
+          class="status"
+          [class.completed]="item.status === 'Completed'"
+          (click)="markComplete(i)">
+
+          {{ item.status === 'Completed' ? '✓ Completed' : 'Mark Complete' }}
+
+        </button>
+
+      </div>
+
+    }
+
+  </div>
+
+</div>

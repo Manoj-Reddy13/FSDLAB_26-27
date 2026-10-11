@@ -1,0 +1,141 @@
+<div class="app-layout">
+
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-icon">🎓</div>
+      <div>
+        <h2>StudentHub</h2>
+        <span>College Portal</span>
+      </div>
+    </div>
+
+    <div class="profile">
+
+      <div class="avatar">
+        MK
+      </div>
+
+      <div>
+        <strong>Manoj Kumar Reddy</strong>
+        <span>CSM • 3rd Year</span>
+      </div>
+
+    </div>
+
+    <nav class="navigation">
+
+      <p class="nav-title">MAIN MENU</p>
+
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+        <span>▣</span>
+        Dashboard
+      </a>
+
+      <a
+        routerLink="/timetable"
+        routerLinkActive="active">
+        <span>▤</span>
+        Timetable
+      </a>
+
+      <a
+        routerLink="/assignments"
+        routerLinkActive="active">
+        <span>✓</span>
+        Assignments
+      </a>
+
+      <a
+        routerLink="/attendance"
+        routerLinkActive="active">
+        <span>◔</span>
+        Attendance
+      </a>
+
+      <a
+        routerLink="/notices"
+        routerLinkActive="active">
+        <span>🔔</span>
+        Notices
+      </a>
+
+      <p class="nav-title">QUICK ACCESS</p>
+
+      <a routerLink="/timetable">
+        <span>📅</span>
+        Class Schedule
+      </a>
+
+      <a routerLink="/assignments">
+        <span>📝</span>
+        My Tasks
+      </a>
+
+      <a routerLink="/notices">
+        <span>📢</span>
+        Announcements
+      </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+      <div class="help-box">
+        <div>💡</div>
+
+        <div>
+          <strong>Need Help?</strong>
+          <p>Contact your department</p>
+        </div>
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <div class="main-area">
+
+    <header class="topbar">
+
+      <div class="mobile-title">
+        🎓 StudentHub
+      </div>
+
+      <div class="topbar-right">
+
+        <button class="icon-button">
+          🔔
+          <span class="notification-dot"></span>
+        </button>
+
+        <div class="top-profile">
+
+          <div class="small-avatar">
+            MK
+          </div>
+
+          <div>
+            <strong>Manoj Kumar Reddy</strong>
+            <span>160124748039</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <main class="content">
+
+      <router-outlet></router-outlet>
+
+    </main>
+
+  </div>
+
+</div>
